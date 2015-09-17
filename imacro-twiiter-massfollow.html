@@ -12,25 +12,3 @@ Return on massfollow is about 1% to 10% on Twitter.
 Attention, you can get ban from Twitter if you get caught.
 
 -->
-
-<!DOCTYPE html>
-<meta charset="utf-8">
-<html>
-<head>
-	<title>iMacros .iim generator for Twitter mass follow</title>
-	<link rel="stylesheet" href="css/style.css" type="text/css" media="screen" title="no title" charset="utf-8">
-</head>
-<body>
-
-	<script type="text/javascript">
-
-	for (i = 4; i < 1004; i++) {
-		// Generate the click on the follow button
-		document.write("TAG POS=" + i + "TYPE=BUTTON ATTR=TXT:Suivre<SP>Abonné<SP>Se<SP>désabonner<SP>Bloqué<SP>Débloquer*" + "<br>");
-		// Generate a random pause time between each clic
-		document.write("WAIT SECONDS=" + Math.floor((Math.random() * 4) + 1) + "<br><br>");
-	}
-
-	</script>
-</body>
-</html>
