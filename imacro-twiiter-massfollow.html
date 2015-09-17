@@ -23,7 +23,7 @@ Attention, you can get ban from Twitter if you get caught.
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 		<style type="text/css">
 		#content {font-size:10px;}
-		</style>t
+		</style>
 	</head>
 	<body>
 		<h1 id="#top">iMacros .iim generator for Twitter and Tumblr mass follow</h1>
@@ -45,7 +45,10 @@ Attention, you can get ban from Twitter if you get caught.
 
 			<button id="go">GO</button>
 
-			<h2>Copy-Paste the following text in iMacro</h2>
+			<h2>Copy xthe following text in iMacro</h2>
+
+			<button onclick="copyToClipboard("content")">copy</button>
+
 			<div id="content">
 			// iMacro content<br>
 			</div>
@@ -53,7 +56,6 @@ Attention, you can get ban from Twitter if you get caught.
 			<a href="#top"><button>top</button></a>
 
 			<button onclick="copyToClipboard("content")">copy</button>
-
 
 		</div>
 
@@ -85,12 +87,19 @@ Attention, you can get ban from Twitter if you get caught.
 
 		
 			// Copy fonction (founded in stack overflow)
-			function copyToClipboard(element) {
-			  var $temp = $("<input>");
-			  $("body").append($temp);
-			  $temp.val($(element).text()).select();
+			function copyToClipboard(elementId) {
+			  // create a "hidden" input
+			  var aux = document.createElement("input");
+			  // assign it the value of the specified element
+			  aux.setAttribute("value", document.getElementById(elementId).innerHTML);
+			  // append it to the body
+			  document.body.appendChild(aux);
+			  // highlight its content
+			  aux.select();
+			  // copy the highlighted text
 			  document.execCommand("copy");
-			  $temp.remove();
+			  // remove it from the body
+			  document.body.removeChild(aux);
 			}
 
 		</script>
