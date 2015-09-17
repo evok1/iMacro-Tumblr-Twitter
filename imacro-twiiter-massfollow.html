@@ -22,17 +22,20 @@ Attention, you can get ban from Twitter if you get caught.
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 		<style type="text/css">
+		#disclaimer {font-weight: bold;}
 		#warning {font-size: 12px; color: red; padding-bottom: 20px;}
 		#result {display: none;}
+		#content {font-size: 10px;}
 		</style>
 	</head>
 	<body>
 		<h1 id="#top">iMacros .iim generator for Twitter and Tumblr mass follow</h1>
+		<p id="disclaimer">Disclaimer : You can be ban by mass following on Twitter. Be aware.</p>
 		<p>1) Select a support, Twitter or Tumblr. 2) What you want to do : follow or defollow. 3) Select how much you want to do</p>
-		<p id="warning">If you generate more the 250, it might slow down or crash you browser. Make sure you let you browser work properly.</p>
+		<p id="warning">Warning : If you generate more the 250, it might slow down or crash you browser. Make sure you let you browser work properly. And you need to enable JavaScript to make this page work correctly.</p>
 
 		<div>
-		
+
 			<select name="select" id="support">
 			  <!-- <option value="tumblr">Tumblr</option> -->
 			  <option value="twitter" selected>Twitter</option>
@@ -68,18 +71,23 @@ Attention, you can get ban from Twitter if you get caught.
 			// Variables declaration
 			var support;
 			var toDo;
-			var howMuch;
+			var howMuch = 0;
 
 			var textTwitter = " TYPE=BUTTON ATTR=TXT:Suivre<SP>Abonné<SP>Se<SP>désabonner<SP>Bloqué<SP>Débloquer*"
 
 			// Generating .iim content
-			generate = function(howMuch) {
+			function generate(howMuch) {
+				// Check if howMuch is a number
+				if (howMuch === 0) {
+					prompt("You need to tell me how much you want you want to do ;) Use numbers (0-9)");
+				} else {}
+				// Generating content
 				for (i = 4; i < howMuch; i++) {
 					// Generate the click on the follow button
 					document.getElementById('content').innerHTML += "TAG POS=" + i + textTwitter + "<br>"
 					// Generate a random pause time between each clic
 					document.getElementById('content').innerHTML += "WAIT SECONDS=" + Math.floor((Math.random() * 4) + 1) + "<br>"
-				}
+				}	
 			}
 
 			// Getting variables values from click on GO button
