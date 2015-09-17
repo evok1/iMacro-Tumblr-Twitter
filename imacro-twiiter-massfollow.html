@@ -1,4 +1,5 @@
 <!--
+// In developpement
 
 # About me
 Hi ! I'm Loïc JULIEN (evok1)
@@ -14,23 +15,85 @@ Attention, you can get ban from Twitter if you get caught.
 -->
 
 <!DOCTYPE html>
-<meta charset="utf-8">
 <html>
-<head>
-	<title>iMacros .iim generator for Twitter mass follow</title>
-	<link rel="stylesheet" href="css/style.css" type="text/css" media="screen" title="no title" charset="utf-8">
-</head>
-<body>
+	<head>
+		<meta charset="utf-8">
+		<title>iMacros .iim generator for Twitter and Tumblr mass follow</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+		<style type="text/css">
+		#content {font-size:10px;}
+		</style>t
+	</head>
+	<body>
+		<h1 id="#top">iMacros .iim generator for Twitter and Tumblr mass follow</h1>
+		<p>Select a support, Twitter or Tumblr<br>
+		What you want to do : follow or defollow<br>And how much you want to do</p>
 
-	<script type="text/javascript">
+		<div>
+			<select name="select" id="support">
+			  <!-- <option value="tumblr">Tumblr</option> -->
+			  <option value="twitter" selected>Twitter</option>
+			</select>
 
-	for (i = 4; i < 1004; i++) {
-		// Generate the click on the follow button
-		document.write("TAG POS=" + i + "TYPE=BUTTON ATTR=TXT:Suivre<SP>Abonné<SP>Se<SP>désabonner<SP>Bloqué<SP>Débloquer*" + "<br>");
-		// Generate a random pause time between each clic
-		document.write("WAIT SECONDS=" + Math.floor((Math.random() * 4) + 1) + "<br><br>");
-	}
+			<select name="select" id="toDo">
+			  <!-- <option value="defollow">Mass Defollow</option> -->
+			  <option value="follow" selected>Mass Follow</option>
+			</select>
 
-	</script>
-</body>
+			How much : <input type="text" name="numberFollows" id="howMuch" placeholder="Enter a round number"/>
+
+			<button id="go">GO</button>
+
+			<h2>Copy-Paste the following text in iMacro</h2>
+			<div id="content">
+			// iMacro content<br>
+			</div>
+
+			<a href="#top"><button>top</button></a>
+
+			<button onclick="copyToClipboard("content")">copy</button>
+
+
+		</div>
+
+		<script type="text/javascript">
+			
+			// Variables declaration
+			var support;
+			var toDo;
+			var howMuch;
+
+			var textTwitter = " TYPE=BUTTON ATTR=TXT:Suivre<SP>Abonné<SP>Se<SP>désabonner<SP>Bloqué<SP>Débloquer*"
+
+			// Generating .iim content
+			generate = function(howMuch) {
+				for (i = 4; i < howMuch; i++) {
+					// Generate the click on the follow button
+					document.getElementById("content").innerHTML += "TAG POS=" + i + textTwitter + "<br>"
+					// Generate a random pause time between each clic
+					document.getElementById("content").innerHTML += "WAIT SECONDS=" + Math.floor((Math.random() * 4) + 1) + "<br><br>"
+				}
+			}
+			// Getting variables values from click on GO button
+			$("#go").click(function () {
+				support = $("#support option:selected").val();
+				toDo = $("#toDo option:selected").val();
+				howMuch = $("#howMuch").val();
+				generate(howMuch);
+			})
+
+		
+			// Copy fonction (founded in stack overflow)
+			function copyToClipboard(element) {
+			  var $temp = $("<input>");
+			  $("body").append($temp);
+			  $temp.val($(element).text()).select();
+			  document.execCommand("copy");
+			  $temp.remove();
+			}
+
+		</script>
+
+	</body>
 </html>
