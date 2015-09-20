@@ -77,10 +77,14 @@ Attention, you can get ban from Twitter if you get caught.
 
 			// Generating .iim content
 			function generate(howMuch) {
-				// Check if howMuch is a number
-				if (howMuch === 0) {
-					prompt("You need to tell me how much you want you want to do ;) Use numbers (0-9)");
-				} else {}
+				// Check if howMuch is greater then 5 and a number
+				if (howMuch < 5) {
+					howMuch = prompt("Choose a number bigger then 10");
+				} else if (isNaN(howMuch)) {
+					howMuch = prompt("Please enter a number greater then 10");
+				}
+				else {
+				}
 				// Generating content
 				for (i = 4; i < howMuch; i++) {
 					// Generate the click on the follow button
