@@ -21,6 +21,7 @@ Attention, you can get ban from Twitter if you get caught.
 		<title>iMacros .iim generator for Twitter and Tumblr mass follow</title>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+		<script src="node_modules/zeroclipboard/dist/ZeroClipboard.min.js"></script>
 		<style type="text/css">
 		#disclaimer {font-weight: bold;}
 		#warning {font-size: 12px; color: red; padding-bottom: 20px;}
@@ -52,7 +53,7 @@ Attention, you can get ban from Twitter if you get caught.
 
 			<div id="result">
 				<h2>Copy the following text in iMacro
-					>>> <button onclick="copyToClipboard('content')">copy</button>
+					>>> <button id="copy-button">copy</button>
 				</h2>
 
 				<div id="contentgate">
@@ -120,6 +121,28 @@ Attention, you can get ban from Twitter if you get caught.
 			  // remove it from the body
 			  document.body.removeChild(aux);
 			}
+
+			// Specify where the Flash movie can be found if not in root folder for web site
+			ZeroClipboard.config( { moviePath: 'node_modules/zeroclipboard/dist//ZeroClipboard.swf' } );
+			var client = new ZeroClipboard( $("#copy-button") );
+			client.on( 'load', function(client) {
+			  client.on( 'datarequested', function(client) {
+			    var text = $('#content').text();
+			    client.setText(text);
+			  });
+
+			  // callback triggered on successful copying
+			  client.on( 'complete', function(client, args) {
+			    console.log("Text copied to clipboard: \n" + args.text );
+			  });
+			});
+
+			// In case of error - such as Flash not being available
+			client.on( 'wrongflash noflash', function() {
+			  ZeroClipboard.destroy();
+			} );
+			</script>
+
 
 		</script>
 
