@@ -9,15 +9,24 @@ var textTwitter = " TYPE=BUTTON ATTR=TXT:Suivre<SP>Abonné<SP>Se<SP>désabonner<
 // Generating .iim content
 function generate(howMuch) {
 
-	// Check if howMuch is greater then 5 and a number
-	if (howMuch < 5) {
-		howMuch = prompt("Choose a number bigger then 10");
-	} else if (isNaN(howMuch)) {
+	// Checking if howMuch is a number
+	if (isNaN(howMuch)) {
 		howMuch = prompt("Please enter a number greater then 10");
 	}
-	else {
+	// Checking if howMuch is bigget then 5 (script for Twitter start at 5)
+	else if (howMuch === 0) {
+		howMuch = prompt("Choose a number bigger then 10");
 	}
-	
+	// Checking if howMuch is bigget then 5 (script for Twitter start at 5)
+	else if (howMuch < 5) {
+		howMuch = prompt("Choose a number bigger then 10");
+	}
+	// Warning for browser alerts/ crash
+	else if (howMuch > 250) {
+		alert("If you do that much, it's might crash your browser. Just press 'continue' if you have a script alert. (Tested up to 1000 on a Lenovo x201 core i7 and 4Go)");
+	}
+	else {}
+
 	// Generating content
 	for (i = 4; i < howMuch; i++) {
 		
@@ -35,7 +44,7 @@ $('#go').click(function () {
 	// Preparing the space for generated content display
 	$('#result').show();
 	$('#content').remove();
-	$('#contentgate').append('<div id="content"><br></div>');
+	$('#contentgate').append('<code id="content"><br></code>');
 
 	// Getting info from user
 	support = $('#support option:selected').val();
