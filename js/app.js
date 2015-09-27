@@ -22,10 +22,10 @@ function generate(howMuch) {
 	for (i = 4; i < howMuch; i++) {
 		
 		// Generate the click on the follow button
-		document.getElementById('content').innerHTML += "TAG POS=" + i + textTwitter + "<br><br>"
+		document.getElementById('content').innerHTML += "TAG POS=" + i + textTwitter + "<br>"
 		
 		// Generate a random pause time between each clic
-		document.getElementById('content').innerHTML += "WAIT SECONDS=" + Math.floor((Math.random() * 10) + 1) + "<br><br>	"
+		document.getElementById('content').innerHTML += "WAIT SECONDS=" + Math.floor((Math.random() * 10) + 1) + "<br>"
 	}	
 }
 
@@ -53,10 +53,10 @@ $('#go').click(function () {
 var client = new ZeroClipboard( document.getElementById("copy-button") );
 
 client.on( 'ready', function(event) {
-	//console.log( 'zeroClipboard loaded' );
+	console.log( 'ZeroClipboard loaded' );
 
 	client.on( 'copy', function(event) {
-		event.clipboardData.setData('text/plain', event.target.innerHTML);
+		event.clipboardData.setData('text/plain', event.target.children.innerHTML);
 	} );
 
 	client.on( 'aftercopy', function(event) {
