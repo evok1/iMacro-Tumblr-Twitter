@@ -56,6 +56,13 @@ $('#go').click(function () {
 
 })
 
+// activating enter key to generate iMacro
+$("#howMuch").keyup(function(event){
+    if(event.keyCode == 13){
+        $("#go").click();
+    }
+});
+
 // ======================================
 // Zeroclipboard
 
