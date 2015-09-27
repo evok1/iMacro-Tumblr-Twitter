@@ -1,0 +1,20 @@
+#result {
+	display: none;
+}
+
+#content {
+	font-size: 10px;
+}
+
+#go {
+	margin: 20px 0px;
+}
+
+.info {
+	font-size: 12px;
+	color: grey;
+}
+
+h2 {
+	display: inline;	
+}

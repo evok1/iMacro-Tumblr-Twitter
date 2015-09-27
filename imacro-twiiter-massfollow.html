@@ -1,4 +1,5 @@
 <!--
+// In developpement
 
 # About me
 Hi ! I'm Loïc JULIEN (evok1)
@@ -12,3 +13,55 @@ Return on massfollow is about 1% to 10% on Twitter.
 Attention, you can get ban from Twitter if you get caught.
 
 -->
+<<<<<<< HEAD
+=======
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>iMacros .iim generator for Twitter and Tumblr mass follow</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/app.css">
+	</head>
+	<body>
+		<h1 id="#top">iMacros .iim generator for Twitter mass follow</h1>
+		<p>1) Select a support (Only Twitter for now). 2) What you want to do : follow or Defollow. 3) Select how much you want to do</p>
+
+		<div>
+
+			<select name="select" id="support">
+			  <!-- <option value="tumblr">Tumblr</option> -->
+			  <option value="twitter" selected>Twitter</option>
+			</select>
+
+			<select name="select" id="action">
+			  <!-- <option value="defollow">Mass Defollow</option> -->
+			  <option value="follow" selected>Mass Follow</option>
+			</select>
+
+			How much : <input type="text" name="numberFollows" id="howMuch" placeholder="Enter a round number"/>
+
+			<button id="go">GO</button>
+
+			<div id"info-twitter-follow" class="info">For Twitter, you can use the same macro to follow and defollow</div>
+
+			<div id="result">
+				<h2>Copy the following text in iMacro</h2>
+				<button id="copy-button" title="Click to copy me." data-clipboard-target="content">copy</button>
+
+				<div id="contentgate"></div>
+
+			<br>
+			<a href="#top"><button>top</button></a>
+			</div>
+
+		</div>
+
+		<script src="node_modules/zeroclipboard/dist/ZeroClipboard.js"></script>
+		<script src="js/app.js"></script>
+
+	</body>
+</html>
+>>>>>>> v1.0
