@@ -7,7 +7,7 @@ You can generate a mass follow iMacro script for Twitter.
 
 ## Disclaimer
 
-You can be ban by mass following on Twitter. Be aware.
+You can get your Twitter account banned if you do too much mass following. Be aware.
 
 
 ## Warning
