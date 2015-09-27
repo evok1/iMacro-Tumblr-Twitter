@@ -24,8 +24,8 @@ Attention, you can get ban from Twitter if you get caught.
 		<link rel="stylesheet" type="text/css" href="css/app.css">
 	</head>
 	<body>
-		<h1 id="#top">iMacros .iim generator for Twitter and Tumblr mass follow</h1>
-		<p>1) Select a support, Twitter or Tumblr. 2) What you want to do : follow or defollow. 3) Select how much you want to do</p>
+		<h1 id="#top">iMacros .iim generator for Twitter mass follow</h1>
+		<p>1) Select a support (Only Twitter for now). 2) What you want to do : follow or Defollow. 3) Select how much you want to do</p>
 
 		<div>
 
@@ -34,7 +34,7 @@ Attention, you can get ban from Twitter if you get caught.
 			  <option value="twitter" selected>Twitter</option>
 			</select>
 
-			<select name="select" id="toDo">
+			<select name="select" id="action">
 			  <!-- <option value="defollow">Mass Defollow</option> -->
 			  <option value="follow" selected>Mass Follow</option>
 			</select>
@@ -43,16 +43,16 @@ Attention, you can get ban from Twitter if you get caught.
 
 			<button id="go">GO</button>
 
+			<div id"info-twitter-follow" class="info">For Twitter, you can use the same macro to follow and defollow</div>
+
 			<div id="result">
 				<h2>Copy the following text in iMacro</h2>
 				<button id="copy-button" title="Click to copy me." data-clipboard-target="content">copy</button>
 
-				<div id="contentgate">
-					<code id="content"></code>
-				</div>
+				<div id="contentgate"></div>
 
 			<br>
-			<button onclick="copyToClipboard('content')">copy</button> <a href="#top"><button>top</button></a>
+			<a href="#top"><button>top</button></a>
 			</div>
 
 		</div>

@@ -1,10 +1,11 @@
 // =================================
 // iMacro generator
 // Variables declaration
+
 var support;
-var toDo;
+var action;
 var howMuch = 0;
-var textTwitter = " TYPE=BUTTON ATTR=TXT:Suivre<SP>Abonné<SP>Se<SP>désabonner<SP>Bloqué<SP>Débloquer*"
+var textTwitter = "TYPE=BUTTON ATTR=TXT:Suivre<SP>Abonné<SP>Se<SP>désabonner<SP>Bloqué<SP>Débloquer*"
 
 // Generating .iim content
 function generate(howMuch) {
@@ -29,12 +30,12 @@ function generate(howMuch) {
 
 	// Generating content
 	for (i = 4; i < howMuch; i++) {
-		
+
 		// Generate the click on the follow button
-		document.getElementById('content').innerHTML += "TAG POS=" + i + textTwitter + "<br>"
+		document.getElementById('content').innerHTML += "TAG POS=" + i + " " + textTwitter + "\n"
 		
 		// Generate a random pause time between each clic
-		document.getElementById('content').innerHTML += "WAIT SECONDS=" + Math.floor((Math.random() * 10) + 1) + "<br>"
+		document.getElementById('content').innerHTML += "WAIT SECONDS=" + Math.floor((Math.random() * (10 - 5 + 1) + 5)) + "\n"
 	}	
 }
 
@@ -44,11 +45,11 @@ $('#go').click(function () {
 	// Preparing the space for generated content display
 	$('#result').show();
 	$('#content').remove();
-	$('#contentgate').append('<code id="content"><br></code>');
+	$('#contentgate').append('<xmp id="content"></xmp>');
 
 	// Getting info from user
 	support = $('#support option:selected').val();
-	toDo = $('#toDo option:selected').val();
+	action = $('#action option:selected').val();
 	howMuch = $('#howMuch').val();
 
 	// Generating .iim
@@ -56,7 +57,7 @@ $('#go').click(function () {
 
 })
 
-// activating enter key to generate iMacro
+// Activating enter key to generate iMacro
 $("#howMuch").keyup(function(event){
     if(event.keyCode == 13){
         $("#go").click();
@@ -65,6 +66,7 @@ $("#howMuch").keyup(function(event){
 
 // ======================================
 // Zeroclipboard
+// check it out : https://github.com/zeroclipboard
 
 var client = new ZeroClipboard( document.getElementById("copy-button") );
 
