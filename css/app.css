@@ -14,7 +14,10 @@
 	font-size: 12px;
 	color: grey;
 }
+.info-twitter-follow {
+	padding: 20px 0px;
+}
 
 h2 {
-	display: inline;	
+	display: inline;
 }

@@ -35,7 +35,7 @@ function generate(howMuch) {
 		document.getElementById('content').innerHTML += "TAG POS=" + i + " " + textTwitter + "\n"
 		
 		// Generate a random pause time between each clic
-		document.getElementById('content').innerHTML += "WAIT SECONDS=" + Math.floor((Math.random() * (10 - 5 + 1) + 5)) + "\n"
+		document.getElementById('content').innerHTML += "WAIT SECONDS=" + Math.floor((Math.random() * (5) + 1)) + "\n"
 	}	
 }
 
