@@ -4,6 +4,10 @@ First version (v1.0) working for Twitter.
 
 You can generate a mass follow iMacro script for Twitter.
 
+## How to use iMacros generator
+Read the .html file a on web server (can be virtual).
+
+Example : Apache 2 on Linux.
 
 ## Disclaimer
 
