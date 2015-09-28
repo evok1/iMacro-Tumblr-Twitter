@@ -5,10 +5,13 @@
 var support;
 var action;
 var howMuch = 0;
+console.log(howMuch);
+
 var textTwitter = "TYPE=BUTTON ATTR=TXT:Suivre<SP>Abonné<SP>Se<SP>désabonner<SP>Bloqué<SP>Débloquer*"
+var textTumblr = "TYPE=BUTTON ATTR=TXT:S'abonner"
 
 // Generating .iim content
-function generate(howMuch) {
+function generate(support,howMuch) {
 
 	// Checking if howMuch is a number
 	if (isNaN(howMuch)) {
@@ -28,16 +31,45 @@ function generate(howMuch) {
 	}
 	else {}
 
-	// Generating content
-	for (i = 4; i < howMuch; i++) {
+	// Condition for Twitter and Tumblr
+	
+	// Generating content for Twitter
+	if (support === "twitter") {
+		for (i = 4; i < howMuch; i++) {
 
-		// Generate the click on the follow button
-		document.getElementById('content').innerHTML += "TAG POS=" + i + " " + textTwitter + "\n"
-		
-		// Generate a random pause time between each clic
-		document.getElementById('content').innerHTML += "WAIT SECONDS=" + Math.floor((Math.random() * (5) + 1)) + "\n"
-	}	
+			// Generate the click on the follow button
+			document.getElementById('content').innerHTML += "TAG POS=" + i + " " + textTwitter + "\n"
+			
+			// Generate a random pause time between each clic
+			document.getElementById('content').innerHTML += "WAIT SECONDS=" + Math.floor((Math.random() * (5) + 1)) + "\n"
+		}
+	}
+
+	// Generaint content for Tumblr
+	else if (support === "tumblr") {
+		for (i = 4; i < howMuch; i++) {
+
+			// Generate the click on the follow button
+			document.getElementById('content').innerHTML += "TAG POS=" + i + " " + textTumblr + "\n"
+			
+			// Generate a random pause time between each clic
+			document.getElementById('content').innerHTML += "WAIT SECONDS=" + Math.floor((Math.random() * (5) + 1)) + "\n"
+		}
+	}	else {}
 }
+
+// User settings
+
+// Setting user choice for Twitter
+$('#action-defollow').hide();
+$('#support').click(function () {
+	if ($('#support option:selected').val() === "tumblr") {
+		$('#action-defollow').show();
+		$('#info').hide();
+	} else {
+		$('#action-defollow').hide();
+	}
+})
 
 // Getting variables values from click on GO button
 $('#go').click(function () {
@@ -49,11 +81,14 @@ $('#go').click(function () {
 
 	// Getting info from user
 	support = $('#support option:selected').val();
+	console.log(support);
 	action = $('#action option:selected').val();
+	console.log(action);
 	howMuch = $('#howMuch').val();
+	console.log(howMuch);
 
 	// Generating .iim
-	generate(howMuch);
+	generate(support,howMuch);
 
 })
 
