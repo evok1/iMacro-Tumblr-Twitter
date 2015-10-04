@@ -41,7 +41,11 @@ function generate(support,howMuch) {
 			document.getElementById('content').innerHTML += "TAG POS=" + i + " " + textTwitter + "\n"
 			
 			// Generate a random pause time between each clic
-			document.getElementById('content').innerHTML += "WAIT SECONDS=" + Math.floor((Math.random() * (5) + 1)) + "\n"
+			// document.getElementById('content').innerHTML += "WAIT SECONDS=" + Math.floor((Math.random() * (5) + 1)) + "\n"
+
+			// Generate a fixe pause time between each clic
+			document.getElementById('content').innerHTML += "WAIT SECONDS=4" + "\n"
+
 		}
 	}
 
@@ -51,23 +55,22 @@ function generate(support,howMuch) {
 
 			// Generate the click on the follow button
 			document.getElementById('content').innerHTML += "TAG POS=" + i + " " + textTumblr + "\n"
-			
-			// Generate a random pause time between each clic
-			document.getElementById('content').innerHTML += "WAIT SECONDS=" + Math.floor((Math.random() * (5) + 1)) + "\n"
+
 		}
 	}	else {}
 }
 
 // User settings
 
-// Setting user choice for Twitter
-$('#action-defollow').hide();
+// Setting info for support
+$('#info-tumblr').hide();
 $('#support').click(function () {
 	if ($('#support option:selected').val() === "tumblr") {
-		$('#action-defollow').show();
-		$('#info').hide();
-	} else {
-		$('#action-defollow').hide();
+		$('#info-tumblr').show();
+		$('#info-twitter').hide();
+	} else if ($('#support option:selected').val() === "twitter"){
+		$('#info-tumblr').hide();
+		$('#info-twitter').show();
 	}
 })
 
@@ -101,7 +104,7 @@ $("#howMuch").keyup(function(event){
 
 // ======================================
 // Zeroclipboard
-// check it out : https://github.com/zeroclipboard
+// Check it out : https://github.com/zeroclipboard
 
 var client = new ZeroClipboard( document.getElementById("copy-button") );
 
