@@ -14,4 +14,4 @@ If you generate more the 250, it might slow down or crash you browser. Make sure
 Just press 'continue' if you have a script alert. (Tested up to 1000 on a Lenovo x201 core i7 and 4Go).
 
 ## Question
-Any question ? Contact me at Doko[http://www.doko.fr/]
+Any question ? Contact me at [Doko](http://www.doko.fr/)
